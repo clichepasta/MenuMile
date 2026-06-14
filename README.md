@@ -4,24 +4,7 @@ This project is an enterprise-grade food delivery and rider scheduling platform 
 
 ---
 
-## 1. Domain Concept Mapping (From Attendance to Food Delivery)
-
-| Legacy Entity | MenuMile Entity | Purpose & Technical Parallel |
-| :--- | :--- | :--- |
-| `School` | `Restaurant` | The business tenant. Needs document upload (FSSAI, GSTIN) and admin approval. |
-| `Teacher` | `DeliveryPartner` | Claim shifts, assign to orders, complete deliveries, upload delivery evidence. |
-| `Student` | `Customer` | Users who place orders and review restaurant performance. |
-| `ClassSection` | `KitchenStation` | Divisions within the kitchen (e.g., Grills, Pastry, Beverages) for order preparation. |
-| `CyclicSchedule` | `RiderShiftSchedule` | RRULE-based recurring availability patterns set up by riders. |
-| `Lecture` | `Order` | A delivery transaction that progresses through preparation, dispatch, and delivery. |
-| `LectureClassSection` | `OrderLineItem` | The individual items within a specific order. |
-| `LectureClassActivity` | `ItemPrepTask` | Specific cooking/assembly tasks required for items in a kitchen station. |
-| `LectureUnitCompletion` | `StationCompletion` | Transactional status tracking completion of all items at a specific kitchen station. |
-| `TeacherOnboardingQueue` | `RestaurantOnboardingQueue` | Daily queue for approved restaurants to generate credentials and send onboarding packets. |
-
----
-
-## 2. Technical Features Overview
+## 1. Technical Features Overview
 
 MenuMile replicates the same "deep" enterprise engineering constraints of the modular monolith:
 1. **Idempotent Shift Generation:** Uses RFC 5545 Recurrence Rules (`org.dmfs:rfc5545-datetime`) to expand recurring rider shifts into concrete shift slots over a 28-day rolling window, preventing duplicate slots.
@@ -32,7 +15,7 @@ MenuMile replicates the same "deep" enterprise engineering constraints of the mo
 
 ---
 
-## 3. Project Structure
+## 2. Project Structure
 
 ```text
 menumile-backend
@@ -158,7 +141,7 @@ menumile-backend
 
 ---
 
-## 4. Operational Commands
+## 3. Operational Commands
 
 ### Compile and Test
 ```bash
